@@ -16,7 +16,7 @@ import json
 
 def make_prediction(df):
     # Load the saved model
-    with open("api/model.pkl", "rb") as f:
+    with open("model.pkl", "rb") as f:
         model = pickle.load(f)
     
     return model.predict(df)
