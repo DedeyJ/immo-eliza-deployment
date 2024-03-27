@@ -18,4 +18,4 @@ RUN pip install -r requirements.txt
 
 # Run the app
 # Set host to 0.0.0.0 to make it run on the container's network
-CMD CMD ["streamlit", "run", "streamlit.py"]
+CMD ["streamlit", "run", "streamlit.py"]
