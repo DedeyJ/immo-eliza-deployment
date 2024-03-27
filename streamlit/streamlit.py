@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 # Streamlit UI elements to take user input
 # st.title("Price Prediction App")
-df = pd.read_csv("streamlit/properties.csv")
+df = pd.read_csv("properties.csv")
 
 property_types = df["property_type"].unique()
 property_subtypes = {}
