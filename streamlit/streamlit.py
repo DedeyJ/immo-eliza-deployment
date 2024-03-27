@@ -23,9 +23,9 @@ data["province"] = st.selectbox('Province',options=(v for v in df["province"].un
 data["total_area_sqm"] = st.number_input('Total Area (sqm)', min_value=18.0)
 data["surface_land_sqm"] = st.number_input('Surface Land Area (sqm)', min_value=18.0)
 data["nbr_bedrooms"] = st.number_input('Number of Bedrooms', min_value=1.0, step=1.0)
-data["terrace_sqm"] = st.slider('Terrace Size (sqm)', min_value=0.0, max_value=df["terrace_sqm"].max())
-data["garden_sqm"] = st.slider('Garden Size (sqm)', min_value=0.0, max_value=df["garden_sqm"].max())
-data["primary_energy_consumption_sqm"] = st.slider('Primary Energy Consumption (sqm)', min_value=0.0, max_value=df["primary_energy_consumption_sqm"].max())
+data["terrace_sqm"] = st.slider('Terrace Size (sqm)', min_value=0.0, max_value=df["terrace_sqm"].median()*2)
+data["garden_sqm"] = st.slider('Garden Size (sqm)', min_value=0.0, max_value=df["garden_sqm"].median()*2)
+data["primary_energy_consumption_sqm"] = st.slider('Primary Energy Consumption (sqm)', min_value=0.0, max_value=df["primary_energy_consumption_sqm"].median()*2)
 data["state_building"] = st.selectbox('State of the Building', options=(v for v in df["state_building"].unique() if v != "MISSING"))
 
 
