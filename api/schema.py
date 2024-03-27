@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 class PropertyInput(BaseModel):
     property_type: str = Field(..., description="Type of property")
     subproperty_type: str = Field(..., description="Subtype of property")
-    province: str = Field(..., description="Province of property")
+    zip_code: str = Field(..., description="Zip code of property")
     total_area_sqm: float = Field(..., description="Total area of the property in square meters")
     surface_land_sqm: float = Field(..., description="Surface land area of the property in square meters")
     nbr_bedrooms: float = Field(..., description="Number of bedrooms in the property")
