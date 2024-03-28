@@ -5,8 +5,19 @@ import pandas as pd
 # st.title("Price Prediction App")
 df = pd.read_csv("properties.csv")
 
+# postcode = pd.read_excel("zipcodes_num_nl_new.xls")
+
+def round_down_to_100(value):
+    if value < 0:
+      return (value // 100) * 100 -100
+    else:
+       return (value // 100) * 100
+
+
+
 property_types = df["property_type"].unique()
 property_subtypes = {}
+
 for property in property_types:
    property_subtypes[property] = df.loc[df["property_type"]==property, "subproperty_type"].unique().tolist()
 
@@ -21,10 +32,10 @@ data["subproperty_type"] = st.selectbox('Select Subproperty Type', subproperty_t
 data["zip_code"] = str(st.selectbox('Zip code',options=(v for v in df["zip_code"].unique())))
 data["total_area_sqm"] = st.number_input('Total Area (sqm)', min_value=18.0)
 data["surface_land_sqm"] = st.number_input('Surface Land Area (sqm)', min_value=18.0)
-data["nbr_bedrooms"] = st.number_input('Number of Bedrooms', min_value=1.0, step=1.0)
-data["terrace_sqm"] = st.slider('Terrace Size (sqm)', min_value=0.0)
-data["garden_sqm"] = st.slider('Garden Size (sqm)', min_value=0.0,)
-data["primary_energy_consumption_sqm"] = st.slider('Primary Energy Consumption (sqm)', min_value=0.0)
+data["nbr_bedrooms"] = st.number_input('Number of Bedrooms', min_value=1, step=1)
+data["terrace_sqm"] = st.slider('Terrace Size (sqm)', min_value=0.0, max_value= 1000.0)
+data["garden_sqm"] = st.slider('Garden Size (sqm)', min_value=0.0, max_value= 1000.0)
+data["primary_energy_consumption_sqm"] = st.slider('Primary Energy Consumption (sqm)', min_value=-100, max_value= 1500)
 data["state_building"] = st.selectbox('State of the Building', options=(v for v in df["state_building"].unique() if v != "MISSING"))
 
 
