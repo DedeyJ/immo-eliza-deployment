@@ -22,7 +22,9 @@ for property in property_types:
    property_subtypes[property] = df.loc[df["property_type"]==property, "subproperty_type"].unique().tolist()
 
 
-
+def format_input_for_display(input_string):
+    formatted_string = input_string.replace("_", " ").lower().capitalize()
+    return formatted_string
 
 data = {}
 
