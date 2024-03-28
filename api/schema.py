@@ -1,6 +1,6 @@
 # schema.py
 import pandas as pd
-from pydantic import BaseModel, Field, 
+from pydantic import BaseModel, Field
 
 df = pd.read_csv(r"./properties.csv")
 property_list = df["property_type"].unique().tolist()
