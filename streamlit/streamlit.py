@@ -31,7 +31,7 @@ data = {}
 data["property_type"] = st.selectbox('Choose Property Type', list(property_subtypes.keys()))
 subproperty_type_options = property_subtypes.get(data["property_type"], [])
 data["subproperty_type"] = st.selectbox('Select Subproperty Type', subproperty_type_options)
-data["zip_code"] = str(st.selectbox('Zip code',options=(v for v in df["zip_code"].unique())))
+data["zip_code"] = str(st.selectbox('Zip code',options=(v for v in df["zip_code"].unique().sort())))
 data["total_area_sqm"] = st.number_input('Total Area (sqm)', min_value=18.0)
 data["surface_land_sqm"] = st.number_input('Surface Land Area (sqm)', min_value=18.0)
 data["nbr_bedrooms"] = st.number_input('Number of Bedrooms', min_value=1, step=1)
