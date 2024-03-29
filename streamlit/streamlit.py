@@ -15,11 +15,11 @@ df = pd.read_csv("properties.csv")
 
 
 
-# property_types = df["property_type"].unique()
-# property_subtypes = {}
+property_types = df["property_type"].unique()
+property_subtypes = {}
 
-# for property in property_types:
-#    property_subtypes[property] = df.loc[df["property_type"]==property, "subproperty_type"].unique().tolist()
+for property in property_types:
+   property_subtypes[property] = df.loc[df["property_type"]==property, "subproperty_type"].unique().tolist()
 
 
 # def format_input_for_display(input_string):
@@ -30,7 +30,7 @@ data = {}
 
 data["property_type"] = st.selectbox('Choose Property Type', list(property_subtypes.keys()))
 subproperty_type_options = property_subtypes.get(data["property_type"], [])
-data["subproperty_type"] = st.selectbox('Select Subproperty Type', subproperty_type_options)
+data["subproperty_type"] = st.selectbox('Choose Subproperty Type', subproperty_type_options)
 data["zip_code"] = str(st.selectbox('Zip code',options=(v for v in df["zip_code"].unique())))
 data["total_area_sqm"] = st.number_input('Total Area (sqm)', min_value=18.0)
 data["surface_land_sqm"] = st.number_input('Surface Land Area (sqm)', min_value=18.0)
