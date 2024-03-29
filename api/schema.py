@@ -7,16 +7,16 @@ property_list = df["property_type"].unique().tolist()
 
 
 class PropertyInput(BaseModel):
-    property_type: str = Field(..., description="Type of property")
-    subproperty_type: str = Field(..., description="Subtype of property")
-    zip_code: str = Field(min_length=4, max_length=4, pattern=r"^[0-9]{4}$", description="Zip code of property")
-    total_area_sqm: float = Field(..., ge=18, description="Total area of the property in square meters")
-    surface_land_sqm: float = Field(..., ge=18, description="Surface land area of the property in square meters")
-    nbr_bedrooms: float = Field(..., ge=1, description="Number of bedrooms in the property")
-    terrace_sqm: float = Field(..., ge=0, description="Size of the terrace in square meters")
-    garden_sqm: float = Field(..., ge=0, description="Size of the garden in square meters")
-    primary_energy_consumption_sqm: float = Field(..., description="Primary energy consumption of the property in square meters")
-    state_building: str = Field(..., description="State of the building")
+    property_type: str = Field(default="HOUSE", description="Type of property")
+    subproperty_type: str = Field(default="HOUSE", description="Subtype of property")
+    zip_code: str = Field(default="9960", min_length=4, max_length=4, pattern=r"^[0-9]{4}$", description="Zip code of property")
+    total_area_sqm: float = Field(default=18, ge=18, description="Total area of the property in square meters")
+    surface_land_sqm: float = Field(default=18, ge=18, description="Surface land area of the property in square meters")
+    nbr_bedrooms: float = Field(default=2, ge=1, description="Number of bedrooms in the property")
+    terrace_sqm: float = Field(default=0, ge=0, description="Size of the terrace in square meters")
+    garden_sqm: float = Field(default=0, ge=0, description="Size of the garden in square meters")
+    primary_energy_consumption_sqm: float = Field(default=100, description="Primary energy consumption of the property in square meters")
+    state_building: str = Field(default="AS_NEW", description="State of the building")
 
     class Config:
         schema_extra = {
