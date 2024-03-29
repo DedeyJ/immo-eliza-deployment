@@ -7,25 +7,25 @@ df = pd.read_csv("properties.csv")
 
 # postcode = pd.read_excel("zipcodes_num_nl_new.xls")
 
-def round_down_to_100(value):
-    if value < 0:
-      return (value // 100) * 100 -100
-    else:
-       return (value // 100) * 100
+# def round_down_to_100(value):
+#     if value < 0:
+#       return (value // 100) * 100 -100
+#     else:
+#        return (value // 100) * 100
 
 
 
-property_types = df["property_type"].unique()
-property_subtypes = {}
+# property_types = df["property_type"].unique()
+# property_subtypes = {}
 
-for property in property_types:
-   property_subtypes[property] = df.loc[df["property_type"]==property, "subproperty_type"].unique().tolist()
+# for property in property_types:
+#    property_subtypes[property] = df.loc[df["property_type"]==property, "subproperty_type"].unique().tolist()
 
 
-def format_input_for_display(input_string):
-    formatted_string = input_string.replace("_", " ").lower().capitalize()
-    return formatted_string
-
+# def format_input_for_display(input_string):
+#     formatted_string = input_string.replace("_", " ").lower().capitalize()
+#     return formatted_string
+st.title("Immoweb Price Prediction")
 data = {}
 
 data["property_type"] = st.selectbox('Choose Property Type', list(property_subtypes.keys()))
